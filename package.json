@@ -1,0 +1,15 @@
+{
+  "name": "chlorine",
+  "private": true,
+  "author": "Gopikrishna Sathyamurthy",
+  "description": "A simple pool chlorine calculator",
+  "keywords": [
+    "pool",
+    "chlorine",
+    "calculator"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx -y live-server --port=3000"
+  }
+}

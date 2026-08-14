@@ -1,0 +1,31 @@
+{
+  "name": "Pool Chlorine Calculator",
+  "short_name": "Chlorine",
+  "description": "Calculate the required amount of chlorine to maintain your swimming pool.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#880000",
+  "theme_color": "#880000",
+  "icons": [
+    {
+      "src": "public/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "public/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "public/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "public/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

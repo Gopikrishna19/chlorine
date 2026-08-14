@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pool Chlorine Calculator</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="description" content="Calculate the required amount of chlorine to maintain your swimming pool.">
+    <meta name="theme-color" content="#880000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Chlorine Pool Calculator">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" type="image/png" href="public/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <link rel="shortcut icon" href="public/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <main>
+        <h1>Pool Chlorine Calculator</h1>
+
+        <form id="form">
+            <label>
+                CYA (ppm):
+                <input type="number" step="1" min="0" required value="30" placeholder="Enter CYA level" name="cya">
+            </label>
+
+            <div class="actions">
+                <button type="submit" name="calculate" value="recommended">Find Ideal Levels</button>
+                <button type="reset">Reset</button>
+            </div>
+
+            <dl id="recommended" class="result">
+                <dt>Min (ppm):</dt>
+                <dd class="min"></dd>
+                <dt>Max (ppm):</dt>
+                <dd class="max"></dd>
+                <dt>Slam (ppm):</dt>
+                <dd class="slam"></dd>
+            </dl>
+
+            <label>
+                Pool volume (gals):
+                <input type="number" step="1" min="0" required value="10000" placeholder="Enter pool volume in gallons"
+                    name="volume">
+            </label>
+
+            <label>
+                Bleach strength (%):
+                <input type="number" step="0.1" min="0" required value="10" placeholder="Enter chlorine strength"
+                    name="strength">
+            </label>
+
+            <label>
+                Current free chlorine (ppm):
+                <input type="number" step="1" min="0" required value="0" placeholder="Enter current free chlorine level"
+                    name="freeChlorine">
+            </label>
+
+            <div class="actions">
+                <button type="submit" name="calculate" value="addition">Calculate Addition</button>
+                <button type="reset">Reset</button>
+            </div>
+
+            <dl id="addition" class="result">
+                <dt>Min (oz / gal):</dt>
+                <dd class="min"></dd>
+                <dt>Max (oz / gal):</dt>
+                <dd class="max"></dd>
+                <dt>Slam (oz / gal):</dt>
+                <dd class="slam"></dd>
+            </dl>
+        </form>
+
+        <aside id="disclaimer">
+            <b>Disclaimer:</b> This tool is for quick household pool estimates only, scaled from a 30 ppm CYA baseline.
+            It is
+            provided as-is with no liability; use at your own risk. Calculations assume ideal water conditions and
+            exclude SLAM-specific balancing. If you are SLAMming, focus on hardness and total alkalinity and ignore pH
+            for this quick estimate.
+        </aside>
+    </main>
+
+    <script>
+        window.addEventListener('load', async () => {
+            try {
+                const registration = await navigator.serviceWorker.register('./sw.js', { type: 'module' });
+            } catch {
+                console.error('ServiceWorker registration failed');
+            }
+        });
+    </script>
+    <script src="index.mjs" type="module"></script>
+</body>
+
+</html>
